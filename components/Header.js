@@ -12,7 +12,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import api from "../api/api";
 import { AppContext } from "../AppContext";
 
-const Header = ({ navigation }) => {
+const Header = ({ history }) => {
   const { chosen, setChosen, data, setData } = useContext(AppContext);
 
   return (
@@ -21,7 +21,7 @@ const Header = ({ navigation }) => {
       <Icon
         name="ios-search"
         style={{ fontSize: 24 }}
-        onPress={() => navigation.navigate("Search")}
+        onPress={() => history.push("/search")}
       />
     </View>
   );

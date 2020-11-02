@@ -11,7 +11,7 @@ import {
 import Header from "../components/Header";
 import { AppContext } from "../AppContext";
 
-const Play = ({ navigation }) => {
+const Play = ({ history }) => {
   const { chosen, setChosen, data, setData } = useContext(AppContext);
 
   const selectSongHandler = () => {
@@ -20,8 +20,12 @@ const Play = ({ navigation }) => {
   //TODO if nothing chosen yet display some screen
   return (
     <View style={styles.container}>
-      <Header navigation={navigation} />
+      <Header history={history} />
       <Text> Play</Text>
+      <Button
+        title="Go to Learn"
+        onPress={() => history.push("/learn")}
+      ></Button>
     </View>
   );
 };

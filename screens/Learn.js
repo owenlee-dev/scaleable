@@ -3,7 +3,7 @@ import { Button, StyleSheet, Text, View, FlatList, Image } from "react-native";
 import Header from "../components/Header";
 import { AppContext } from "../AppContext";
 
-const Learn = () => {
+const Learn = ({ history }) => {
   const { search, setSearch, data, setData } = useContext(AppContext);
 
   const selectSongHandler = () => {
@@ -13,6 +13,7 @@ const Learn = () => {
     <View style={styles.container}>
       <Header />
       <Text> Learn</Text>
+      <Button title="Go to Play" onPress={() => history.push("/")}></Button>
     </View>
   );
 };
