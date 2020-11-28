@@ -9,15 +9,15 @@ import {
   Image,
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import api from "../api/api";
 import { AppContext } from "../AppContext";
 
 const Header = ({ history }) => {
-  const { chosen, setChosen, data, setData } = useContext(AppContext);
+  const { chosen, setChosen } = useContext(AppContext);
 
   return (
     <View style={styles.container}>
-      <Text style={{ fontSize: 24 }}>ScaleAble</Text>
+      <View style={styles.title}></View>
+      <Text style={styles.titleText}>ScaleAble</Text>
       <Icon
         name="ios-search"
         style={{ fontSize: 24 }}
@@ -32,8 +32,18 @@ const styles = StyleSheet.create({
     backgroundColor: "lightgray",
     justifyContent: "space-between",
     width: "100%",
-    padding: 20,
+    padding: 10,
     alignItems: "center",
+  },
+  title: {
+    borderRadius: 10,
+    backgroundColor: "#a7a3ff",
+  },
+  titleText: {
+    fontFamily: "VeganStylePersonalUse-5Y58",
+    fontSize: 24,
+    letterSpacing: 2,
+    color: "black",
   },
   searchBar: {
     fontSize: 20,

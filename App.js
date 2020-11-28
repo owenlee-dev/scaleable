@@ -9,9 +9,10 @@ import { Icon } from "react-native-elements";
 import { NativeRouter, Switch, Route } from "react-router-native";
 
 export default function App() {
+  //selected song
   const [chosen, setChosen] = useState(null);
+  //list of songs displayed from search
   const [data, setData] = useState("");
-
   return (
     <NativeRouter>
       <AppContext.Provider value={{ chosen, setChosen, data, setData }}>

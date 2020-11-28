@@ -1,26 +1,61 @@
-import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
+import React from "react";
+import {
+  Text,
+  SafeAreaView,
+  View,
+  StyleSheet,
+  TextInput,
+  Button,
+  Pressable,
+  Image,
+} from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 
-const PlayStack = createStackNavigator();
-const PlayStackScreen = () => {
+function BottomTabNavigation({ history }) {
   return (
-    <PlayStack.Navigator screenOptions={{ headerShown: false }}>
-      <PlayStack.Screen name="Play" component={Play} />
-      <PlayStack.Screen name="Search" component={Search} />
-    </PlayStack.Navigator>
+    <View style={styles.container}>
+      <Pressable style={styles.tabContainer} onPress={() => history.push("/")}>
+        <Text style={styles.tabTitle}>Play</Text>
+      </Pressable>
+      <View style={styles.centerContainer}>
+        <Icon name="circle" size={30}></Icon>
+      </View>
+      <Pressable
+        style={styles.tabContainer}
+        onPress={() => history.push("/learn")}
+      >
+        <Text style={styles.tabTitle}>Learn</Text>
+      </Pressable>
+    </View>
   );
-};
+}
 
-const LearnStack = createStackNavigator();
-const LearnStackScreen = () => {
-  return (
-    <LearnStack.Navigator screenOptions={{ headerShown: false }}>
-      <LearnStack.Screen name="Learn" component={Learn} />
-      <LearnStack.Screen name="Search" component={Search} />
-    </LearnStack.Navigator>
-  );
-};
-
-export default createMaterialBottomTabNavigator({
-  Play: { screen: PlayStackScreen },
-  Learn: { screen: LearnStackScreen },
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    backgroundColor: "lightgray",
+    justifyContent: "space-evenly",
+    width: "100%",
+    padding: 5,
+    height: "10%",
+    alignItems: "center",
+  },
+  tabContainer: {
+    backgroundColor: "#fff",
+    width: "50%",
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  tabTitle: {
+    fontSize: 20,
+    fontFamily: "Modak-Regular",
+    letterSpacing: 2,
+    color: "black",
+  },
+  centerContainer: {
+    zIndex: 1,
+  },
 });
+
+export default BottomTabNavigation;

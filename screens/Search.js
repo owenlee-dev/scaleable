@@ -7,13 +7,15 @@ import {
   FlatList,
   Image,
   TextInput,
+  Pressable,
 } from "react-native";
-import api from "../api/api";
+import api from "../tools/api";
 import { AppContext } from "../AppContext";
+import Icon from "react-native-vector-icons/FontAwesome";
 
-const Search = ({ navigation }) => {
+const Search = ({ history }) => {
   const { chosen, setChosen, data, setData } = useContext(AppContext);
-  const [userInput, setUserInput] = useState("");
+  const [userInput, setUserInput] = useState("yes");
 
   //function to call api and store search results in data
   const submitSearchHandler = async () => {
@@ -21,25 +23,33 @@ const Search = ({ navigation }) => {
     setData(response);
   };
 
-  const selectSongHandler = (item) => {
-    setChosen(item);
-    navigation.navigate("Play");
+  const selectSongHandler = async (item) => {
+    const song = await api.getSongDetails(item.id);
+    setChosen(song.data.song);
+    history.push("/");
   };
   return (
     <View style={styles.container}>
-      <View title="header" style={styles.header}>
-        <TextInput
-          style={styles.searchBar}
-          placeholder="Search..."
-          onChangeText={(text) => {
-            setUserInput(text);
-          }}
-          onSubmitEditing={submitSearchHandler}
-          value={userInput}
-        />
-        <Button title="submit" onPress={submitSearchHandler} />
+      <View style={styles.headerContainer}>
+        <Pressable style={styles.backButton} onPress={() => history.push("/")}>
+          <Icon name="arrow-left" />
+        </Pressable>
+        <View style={styles.searchBarContainer}>
+          <TextInput
+            style={styles.searchBar}
+            placeholder="Search..."
+            onChangeText={(text) => {
+              setUserInput(text);
+            }}
+            onSubmitEditing={submitSearchHandler}
+            value={userInput}
+          />
+        </View>
+        <Pressable style={styles.submitButton} onPress={submitSearchHandler}>
+          <Text>Submit</Text>
+        </Pressable>
       </View>
-      <View title="content" style={styles.content}>
+      <View style={styles.contentContainer}>
         <FlatList
           data={data}
           keyExtractor={(item) => item.id}
@@ -66,22 +76,29 @@ const Search = ({ navigation }) => {
 };
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: "lightgray",
-    justifyContent: "space-between",
-    width: "100%",
     padding: 20,
-    alignItems: "center",
   },
-  header: {
+  headerContainer: {
     flexDirection: "row",
-    justifyContent: "space-around",
+    height: 70,
+    alignItems: "center",
+    borderWidth: 2,
+    justifyContent: "center",
   },
-  content: {},
+  searchBarContainer: {
+    flex: 0.6,
+    backgroundColor: "#fff",
+  },
   searchBar: {
+    height: "100%",
     fontSize: 20,
-    maxWidth: "70%",
-    minWidth: "70%",
-    backgroundColor: "transparent",
+  },
+  backButton: { flex: 0.2, alignItems: "center" },
+  submitButton: { flex: 0.2, alignItems: "center" },
+  contentContainer: {
+    flex: 1,
   },
   listItem: {
     marginTop: 10,
