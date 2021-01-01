@@ -1,0 +1,202 @@
+{
+  "notes":[
+    {"note":"A","transValue":3},
+    {"note":"A#","transValue":2},
+    {"note":"B","transValue":1},
+    {"note":"C","transValue":0},
+    {"note":"C#","transValue":11},
+    {"note":"D","transValue":10},
+    {"note":"D#","transValue":9},
+    {"note":"E","transValue":8},
+    {"note":"F","transValue":7},
+    {"note":"F#","transValue":6},
+    {"note":"G","transValue":5},
+    {"note":"G#","transValue":4},
+    {"note":"Am","transValue":0},
+    {"note":"A#m","transValue":11},
+    {"note":"Bm","transValue":10},
+    {"note":"Cm","transValue":9},
+    {"note":"C#m","transValue":8},
+    {"note":"Dm","transValue":7},
+    {"note":"D#m","transValue":6},
+    {"note":"Em","transValue":5},
+    {"note":"Fm","transValue":4},
+    {"note":"F#m","transValue":3},
+    {"note":"Gm","transValue":2},
+    {"note":"G#m","transValue":1}
+  ],
+
+
+  "frets":[
+    "eOne","eTwo","eThree","eFour","eFive","eSix","bOne","bTwo","bThree","bFour","bFive","bSix","gOne","gTwo","gThree","gFour","gFive","gSix",
+    "dOne","dTwo","dThree","dFour","dFive","dSix","aOne","aTwo","aThree","aFour","aFive","aSix","EOne","ETwo","EThree","EFour","EFive","ESix",
+  ],
+
+  "dots":[3, 5, 7, 9, 12, 15, 17, 19, 21, 24],
+  
+  "scales":[
+    {
+      "id":"pent",
+      "name":"Pentatonic",
+      "scale":[
+        [ 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0],
+        [ 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0],
+        [ 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0],
+        [ 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0],
+        [ 1, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0],
+        [ 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0]
+      ],
+      "slices":[[0,3],[2,5],[5,8],[7,10],[9,13]],
+      "notes":{
+        "major":[1,2,3,5,6],
+        "minor":[1,-3,4,5,-7]
+      },
+      "description":{
+        "major":"The major pentatonic scale is a 5 note scale, similar to the major (Ionian) scale but without the 4th and 7th scale degrees. Although the major Pentatonic is less popular than its minor equivalent it is still a very popular scale and is often used in rock, jazz and pop music. It has a cheerful, bright sound and sounds good in upbeat blues, country and folk songs. This scale is most commonly broken up into five major pentatonic positions.",
+        "minor":"The minor pentatonic scale is a 5 note scale, similar to the minor (Aeolian) scale but without the 2nd and 6th scale degree. The minor pentatonic is a quintessential scale for all guitarists as it is used (and often overused) in so many genres from rock and blues to country and bluegrass. This scale is most commonly broken up into five major pentatonic positions."
+      },
+      "tips":{
+        "major":"- Focus on starting and ending phrases on the root notes \n- Add repetition to your phrasing\n- Learn adjacent positions and try to play up and down the neck (horizontally) as much as up and down the scale (vertically)\n- For bluesy feel can switch between major pentatonic, minor pentatonic and blues scale",
+        "minor":"- Focus on starting and ending phrases on the root notes \n- Add repetition to your phrasing\n- Learn adjacent positions and try to play up and down the neck (horizontally) as much as up and down the scale (vertically)"
+      }
+    },
+    {
+      "id":"blue",
+      "name":"Blues",
+      "scale":[
+        [ 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 4, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 4, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 4],
+        [ 0, 2, 0, 1, 4, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 4, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 4, 1, 0, 0, 1, 0, 3, 0],
+        [ 1, 0, 3, 0, 0, 2, 0, 1, 4, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 4, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 4, 1, 0, 0],
+        [ 1, 4, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 4, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 4, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0],
+        [ 1, 0, 0, 2, 0, 1, 4, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 4, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 4, 1, 0, 0, 1, 0],
+        [ 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 4, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 4, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 4]
+      ],
+      "slices":[[0,4],[1,5],[5,8],[6,10],[9,13]],
+      "notes":{
+        "major":[1,2,-3,3,5,6],
+        "minor":[1,2,3,-5,5,6]
+      },
+      "description":{
+        "major":"To produce a major blues scale, take the major pentatonic scale and add in a blue note, the flat third of the key. This added note gives the major blues scale its bluesy vibe and separates it melodically from the major pentatonic scale.",
+        "minor":"The blues scale is esentially a minor pentatonic scale with an added flat fifth. The easiest way to remember this scale is to think of it as the minor pentatonic and simply learn where the added notes are within the normal five minor pentatonic positions."
+      },
+      "tips":{
+        "major":"- Focus on starting and ending phrases on the root notes\n- Do not start or end phrases on blue notes \n- Add repetition to your phrasing\n- Learn adjacent positions and try to play up and down the neck (horizontally) as much as up and down the scale (vertically)\n- For bluesy feel can switch between major pentatonic, minor pentatonic and blues scale",
+        "minor":"- Focus on starting and ending phrases on the root notes \n- Do not start or end phrases on blue notes \n- Add repetition to your phrasing\n- Learn adjacent positions and try to play up and down the neck (horizontally) as much as up and down the scale (vertically)"
+      }
+    },
+    {
+      "id":"ioni",
+      "name":"Ionian",
+      "scale":[
+        [1, 1, 0, 1, 0, 3, 0, 1, 2, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 2, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 2, 0, 1, 0],
+        [1, 2, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 2, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 2, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0],
+        [1, 0, 3, 0, 1, 2, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 2, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 2, 0, 1, 0, 1, 1, 0],
+        [1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 2, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 2, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 2, 0],
+        [3, 0, 1, 2, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 2, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 2, 0, 1, 0, 1, 1, 0, 1, 0],
+        [1, 1, 0, 1, 0, 3, 0, 1, 2, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 2, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 2, 0, 1, 0]
+      ],
+      "slices":[[0,3],[2,6],[4,8],[7,10],[9,13]],
+      "notes":{
+        "major":[1,2,3,4,5,6,7]
+      }
+    },
+    {
+      "id":"dori",
+      "name":"Dorian",
+      "scale":[
+        [0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1],
+        [0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1],
+        [1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1],
+        [1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2],
+        [1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1],
+        [0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1]
+      ],
+      "slices":[[0,4],[2,6],[5,8],[7,11],[10,13]],
+      "notes":{
+        "major":[1,2,-3,4,5,6,-7]
+      }
+    },
+    {
+      "id":"phry",
+      "name":"Phrygian",
+      "scale":[
+        [0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0],
+        [0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0],
+        [1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1],
+        [0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2],
+        [0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1],
+        [0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0]
+      ],
+      "slices":[[0,4],[3,6],[5,9],[8,11],[10,14]],
+      "notes":{
+        "major":[1,-2,-3,4,5,-6,-7]
+      }
+    },
+    {
+      "id":"lydi",
+      "name":"Lydian",
+      "scale":[
+        [1, 0, 1, 1, 0, 1, 0, 1, 2, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 2, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 2, 0, 1],
+        [1, 2, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 2, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 2, 0, 1, 0, 1, 0, 1, 1, 0, 1],
+        [1, 0, 1, 0, 1, 2, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 2, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 2, 0, 1, 0, 1, 0],
+        [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 2, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 2, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 2],
+        [1, 0, 1, 2, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 2, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 2, 0, 1, 0, 1, 0, 1, 1],
+        [1, 0, 1, 1, 0, 1, 0, 1, 2, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 2, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 2, 0, 1]
+      ],
+      "slices":[[-1,3],[2,5],[4,8],[7,10],[9,13]],
+      "notes":{
+        "major":[1,2,3,-5,5,6,7]
+      }
+    },
+    {
+      "id":"mixo",
+      "name":"Mixolydian",
+      "scale":[
+        [1, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1],
+        [0, 2, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 0, 1, 1, 0, 1, 0, 1],
+        [1, 0, 1, 1, 0, 2, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 0, 1, 1],
+        [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 2],
+        [1, 1, 0, 2, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 0, 1, 1, 0, 1],
+        [1, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1]
+      ],
+      "slices":[[0,3],[2,6],[5,8],[7,11],[9,13]],
+      "notes":{
+        "major":[1,2,3,4,5,6,-7]
+      }
+    },
+    {
+      "id":"aeol",
+      "name":"Aeolian",
+      "scale":[
+        [0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1],
+        [0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0],
+        [1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1],
+        [1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2],
+        [0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1],
+        [0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1]
+      ],
+      "slices":[[0,4],[3,6],[5,9],[7,11],[10,13]],
+      "notes":{
+        "major":[1,2,-3,4,5,-6,-7]
+      }
+    },
+    {
+      "id":"locr",
+      "name":"Locrian",
+      "scale":[
+        [0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0],
+        [0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0],
+        [0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1],
+        [0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2],
+        [0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0],
+        [0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0]
+      ],
+      "slices":[[0,4],[3,7],[5,9],[8,11],[10,14]],
+      "notes":{
+        "major":[1,-2,-3,4,-5,-6,-7]
+      }
+    }
+    
+  ]
+}
