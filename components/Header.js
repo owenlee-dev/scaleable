@@ -1,7 +1,7 @@
-import React, { useEffect, useContext } from "react";
-import { Text, View, StyleSheet, Animated } from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
-import { AppContext } from "../AppContext";
+import React, {useEffect, useContext} from 'react';
+import {Text, View, StyleSheet, Animated} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {AppContext} from '../AppContext';
 import {
   accentColor,
   headerFont,
@@ -9,10 +9,10 @@ import {
   secondaryColor,
   mainBorderRadius,
   textColor,
-} from "../assets/Styles";
+} from '../assets/Styles';
 
-const Header = ({ history }) => {
-  const { chosen, setChosen, tab } = useContext(AppContext);
+const Header = ({history}) => {
+  const {chosen, setChosen, tab} = useContext(AppContext);
 
   const slideValue = new Animated.Value(0);
   const slideUp = slideValue.interpolate({
@@ -26,20 +26,19 @@ const Header = ({ history }) => {
       duration: 500,
       useNativeDriver: true, // To make use of native driver for performance
     }).start();
-    setTimeout(() => history.push("/search"), 100);
+    setTimeout(() => history.push('/search'), 100);
   };
   return (
     <Animated.View
       style={[
         styles.container,
         {
-          transform: [{ translateY: slideUp }],
+          transform: [{translateY: slideUp}],
         },
-      ]}
-    >
+      ]}>
       <View style={styles.title}></View>
       <Text style={styles.titleText}>
-        Scale<Text style={{ color: textColor }}>Able</Text>
+        Scale<Text style={{color: textColor}}>Able</Text>
       </Text>
 
       <Icon
@@ -53,29 +52,29 @@ const Header = ({ history }) => {
 };
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
+    flexDirection: 'row',
     backgroundColor: primaryColor,
     borderBottomWidth: 2,
     borderTopWidth: 2,
     borderColor: accentColor,
-    justifyContent: "space-between",
-    width: "100%",
-    height: "10%",
+    justifyContent: 'space-between',
+    width: '100%',
+    height: '10%',
     padding: 10,
-    alignItems: "center",
+    alignItems: 'center',
   },
   titleText: {
     fontFamily: headerFont,
     fontSize: 30,
     paddingLeft: 5,
-    fontWeight: "400",
+    fontWeight: '400',
     letterSpacing: 1,
     color: accentColor,
   },
   searchBar: {
     fontSize: 20,
-    maxWidth: "70%",
-    backgroundColor: "transparent",
+    maxWidth: '70%',
+    backgroundColor: 'transparent',
   },
   searchIcon: {
     fontSize: 28,

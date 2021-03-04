@@ -1,7 +1,7 @@
-import React from "react";
-import { Text } from "react-native";
-import scales from "../assets/scales.json";
-import { getTransValue, halfStep, wholeStep } from "../tools/ScaleTools";
+import React from 'react';
+import {View} from 'react-native';
+import scales from '../assets/scales.json';
+import {getTransValue, halfStep, wholeStep} from '../tools/ScaleTools';
 //This component takes in a 6x6 box and generates the chords within it given a key
 const ChordGenerator = () => {
   // const { scale, fretNumber, key, isMinor, modified } = props;
@@ -30,13 +30,13 @@ const ChordGenerator = () => {
   ];
   const fretNumber = 5;
   const modified = true;
-  const key = "C";
+  const key = 'F';
   const isMinor = false;
   //END OF TEST DATA~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   //function to get all notes in same position as given scale
   const getGuitarNeckSlice = (fretNumber, modified) => {
-    const openNotes = ["E", "A", "D", "G", "B", "E"];
+    const openNotes = ['E', 'A', 'D', 'G', 'B', 'E'];
     let neckSlice = [];
     for (let i = 0; i < 6; i++) {
       let startIndex = modified
@@ -63,7 +63,7 @@ const ChordGenerator = () => {
   //function to remove all notes except those that are in the chord
   const isolateChordNotes = (chord, neckSlice) => {
     let notesInChord = null;
-    if (chord.includes("m")) {
+    if (chord.includes('m')) {
       chord = chord.charAt(0);
       const flatThird = wholeStep(halfStep(chord));
       const fifth = wholeStep(wholeStep(flatThird));
@@ -83,15 +83,13 @@ const ChordGenerator = () => {
       }
     }
 
-    const chordObject = { notesInChord, neckSlice };
+    const chordObject = {notesInChord, neckSlice};
     return chordObject;
   };
-  //TEST
-  const testChordObject = isolateChordNotes("C", testNeckSlice);
-  console.log(testChordObject);
+
   //function that returns an array of different combinations of at least all 3 isolated notes
-  const getChordCombinations = (chordObject) => {
-    const { neckSlice, notesInChord } = chordObject;
+  const getTriads = (chordObject) => {
+    const {neckSlice, notesInChord} = chordObject;
     const resultSets = [];
     //generate set of strings for each note,
     let rootStrings = [];
@@ -114,24 +112,27 @@ const ChordGenerator = () => {
         }
       });
     }
-    console.log("root strings: ", rootStrings);
-    console.log("third strings: ", thirdStrings);
-    console.log("fifth strings: ", fifthStrings);
+    // console.log('root strings: ', rootStrings);
+    // console.log('third strings: ', thirdStrings);
+    // console.log('fifth strings: ', fifthStrings);
 
     //Find permutations of these 3 sets that contain at least one of each note
     for (let i = 0; i < rootStrings.length; i++) {
       for (let j = 0; j < thirdStrings.length; j++) {
-        if (j == i) continue;
+        if (thirdStrings[j] == rootStrings[i]) continue;
         for (let k = 0; k < fifthStrings.length; k++) {
-          if (k == i || k == j) continue;
+          if (
+            fifthStrings[k] == rootStrings[i] ||
+            fifthStrings[k] == thirdStrings[j]
+          )
+            continue;
           resultSets.push([rootStrings[i], thirdStrings[j], fifthStrings[k]]);
         }
       }
     }
-    console.log(resultSets);
   };
-  getChordCombinations(testChordObject);
-  return <Text>ChordGenerator</Text>;
+  getTriads(testChordObject);
+  return <View></View>;
 };
 
 export default ChordGenerator;

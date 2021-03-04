@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, {useState, useEffect, useContext, useRef} from 'react';
 import {
   StyleSheet,
   Text,
@@ -8,70 +8,66 @@ import {
   Animated,
   FlatList,
   Pressable,
-} from "react-native";
-import Header from "../components/Header";
-import { AppContext } from "../AppContext";
-import BottomTabNavigation from "../components/BottomTabNavigation";
-import ScaleCard from "../components/ScaleCard";
-import scales from "../assets/scales.json";
+} from 'react-native';
+import Header from '../components/Header';
+import {AppContext} from '../AppContext';
+import BottomTabNavigation from '../components/BottomTabNavigation';
+import ScaleCard from '../components/ScaleCard';
+import scales from '../assets/scales.json';
 import {
   splitScale,
   transposeSlices,
   transposeScale,
   getNotesInScale,
-} from "../tools/ScaleTools";
+} from '../tools/ScaleTools';
 import {
   accentColor,
   backgroundColor,
   playBackgroundColor,
   primaryColor,
-  secondaryColor,
-  mainBorderRadius,
   mainFont,
   textColor,
-} from "../assets/Styles";
-import GestureRecognizer from "react-native-swipe-gestures";
-import ChordGenerator from "../components/ChordGenerator";
+} from '../assets/Styles';
+import {Images} from '../assets/images/Images';
 
 //TODO add open position scales
-//TODO add screen when nothing is open
-//TODO transition animations
-//TODO stop rerender of pick when filtering scales
-const Play = ({ history }) => {
-  const {
-    chosen,
-    setChosen,
-    currentKey,
-    setCurrentKey,
-    setTab,
-    tab,
-  } = useContext(AppContext);
+const Play = ({history}) => {
+  const {chosen, currentKey, tab} = useContext(AppContext);
 
   let splitScales = [];
   let startFrets = [];
   let names = [];
   let positions = [];
-  const [filter, setFilter] = useState("Pentatonic");
+  const [filter, setFilter] = useState('Pentatonic');
 
   //prettier-ignore
-  const DATA = [
-    {title: "Pentatonic"},
-    {title: "Blues"},
-    {title: "Ionian"},
-    {title: "Dorian"},
-    {title: "Phrygian"},
-    {title: "Lydian"},
-    {title: "Mixolydian"}, 
-    {title: "Aeolian"},
-    {title: "Locrian"},    
-  ];
+  let DATA = null;
+  //hard coded scales at top = messy and gross :(
+  if (chosen && currentKey.includes('m')) {
+    DATA = [
+      {title: 'Pentatonic'},
+      {title: 'Blues'},
+      {title: 'Dorian'},
+      {title: 'Phrygian'},
+      {title: 'Aeolian'},
+      {title: 'Locrian'},
+    ];
+  } else {
+    DATA = [
+      {title: 'Pentatonic'},
+      {title: 'Blues'},
+      {title: 'Ionian'},
+      {title: 'Lydian'},
+      {title: 'Mixolydian'},
+    ];
+  }
 
   if (chosen) {
     for (let i = 0; i < scales.scales.length; i++) {
       // transpose scale to new key
       const transposedScale = transposeScale(
         scales.scales[i].scale,
-        currentKey
+        currentKey,
       );
       //transpose slices
       const slices = transposeSlices(scales.scales[i].slices, currentKey);
@@ -96,7 +92,15 @@ const Play = ({ history }) => {
           <Text style={styles.chosenSongKey}>{currentKey}</Text>
         </View>
         <View style={styles.chosenRight}>
-          <Text style={styles.chosenTitle}>{chosen.title}</Text>
+          {chosen.title.length <= 22 && (
+            <Text style={styles.chosenTitle}>{chosen.title}</Text>
+          )}
+          {chosen.title.length > 22 && chosen.title.length <= 27 && (
+            <Text style={styles.chosenTitleSmall}>{chosen.title}</Text>
+          )}
+          {chosen.title.length > 27 && (
+            <Text style={styles.chosenTitleSmaller}>{chosen.title}</Text>
+          )}
           <Text style={styles.chosenArtist}>{chosen.artist.name}</Text>
         </View>
       </View>
@@ -112,10 +116,10 @@ const Play = ({ history }) => {
       </View>
     );
   };
-  const Item = ({ title }) => {
-    let filterStyle = "filterItem";
+  const Item = ({title}) => {
+    let filterStyle = 'filterItem';
     if (title === filter) {
-      filterStyle = "filterItemActive";
+      filterStyle = 'filterItemActive';
     }
     return (
       <View style={styles.item}>
@@ -125,7 +129,7 @@ const Play = ({ history }) => {
       </View>
     );
   };
-  const renderItem = ({ item }) => <Item title={item.title} />;
+  const renderItem = ({item}) => <Item title={item.title} />;
   const scaleFilter = () => {
     return (
       <View>
@@ -152,7 +156,7 @@ const Play = ({ history }) => {
   });
 
   useEffect(() => {
-    if (tab === "play") {
+    if (tab === 'play') {
       Animated.timing(slideValue, {
         toValue: 1,
         duration: 200,
@@ -164,99 +168,96 @@ const Play = ({ history }) => {
         duration: 200,
         useNativeDriver: true, // To make use of native driver for performance
       }).start();
-      setTimeout(() => history.push("/learn"), 0);
+      setTimeout(() => history.push('/learn'), 0);
     }
   }, [tab]);
 
-  //TODO if nothing chosen yet display some screen
   // render all scales that need to be rendered
   return (
-    <>
-      <ChordGenerator />
+    <View style={styles.container}>
       <Header history={history} />
-      <GestureRecognizer
-        onSwipeLeft={() => {
-          setTab("learn");
-        }}
-        style={{ flex: 1 }}
-      >
-        <Animated.View
-          style={[
-            styles.container,
-            {
-              transform: [
-                tab === "play"
-                  ? { translateX: slideIn }
-                  : { translateX: slideOut },
-              ],
-            },
-          ]}
-        >
-          <ScrollView showsVerticalScrollIndicator={false} style={styles.list}>
-            {chosen && chosen.id && songHeader()}
-            {chosen && !chosen.id && keyHeader()}
-            {chosen && scaleFilter()}
-            {chosen &&
-              splitScales.map((scale, index) => {
-                if (filter === names[index]) {
-                  return (
-                    <ScaleCard
-                      fretNumber={startFrets[index]}
-                      name={names[index]}
-                      position={positions[index]}
-                      history={history}
-                      scale={scale}
-                      key={Math.random() * 1}
-                    />
-                  );
-                }
-              })}
-            {!chosen && (
-              <Image
-                style={{ width: 400, height: 400 }}
-                source={require("../assets/images/ScaleAble.png")}
-              ></Image>
-            )}
-          </ScrollView>
-        </Animated.View>
-      </GestureRecognizer>
+      <Animated.View
+        style={[
+          styles.container,
+          {
+            transform: [
+              tab === 'play' ? {translateX: slideIn} : {translateX: slideOut},
+            ],
+          },
+        ]}>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.list}>
+          {chosen && chosen.id && songHeader()}
+          {chosen && !chosen.id && keyHeader()}
+          {chosen && scaleFilter()}
+          {chosen &&
+            splitScales.map((scale, index) => {
+              if (filter === names[index]) {
+                return (
+                  <ScaleCard
+                    fretNumber={startFrets[index]}
+                    name={names[index]}
+                    position={positions[index]}
+                    history={history}
+                    scale={scale}
+                    key={Math.random() * 1}
+                  />
+                );
+              }
+            })}
+          {!chosen && (
+            <Image
+              style={{width: 400, height: 400}}
+              source={Images.scaleAble}></Image>
+          )}
+        </ScrollView>
+      </Animated.View>
       <BottomTabNavigation history={history} />
-    </>
+    </View>
   );
 };
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
+    alignItems: 'center',
     backgroundColor: playBackgroundColor,
-    width: "100%",
+    width: '100%',
   },
   chosenSong: {
     top: 0,
-    flexDirection: "row",
-    height: "3%",
+    flexDirection: 'row',
+    height: '3%',
     borderBottomWidth: 2,
-    width: "100%",
+    width: '100%',
     borderColor: accentColor,
   },
   chosenLeft: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: backgroundColor,
     borderColor: accentColor,
     borderRightWidth: 2,
   },
   chosenRight: {
     flex: 5,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: backgroundColor,
   },
   chosenTitle: {
     fontFamily: mainFont,
     color: textColor,
     fontSize: 28,
+  },
+  chosenTitleSmall: {
+    fontFamily: mainFont,
+    color: textColor,
+    fontSize: 24,
+  },
+  chosenTitleSmaller: {
+    fontFamily: mainFont,
+    color: textColor,
+    fontSize: 20,
   },
   chosenArtist: {
     fontFamily: mainFont,
@@ -268,12 +269,12 @@ const styles = StyleSheet.create({
   },
   chosenKey: {
     top: 0,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: backgroundColor,
     height: 75,
-    width: "100%",
+    width: '100%',
     borderBottomWidth: 2,
     borderColor: accentColor,
   },
@@ -282,27 +283,27 @@ const styles = StyleSheet.create({
     width: 100,
     padding: 5,
     borderColor: accentColor,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     margin: 3,
     marginTop: 10,
     borderRadius: 100,
-    backgroundColor: "white",
+    backgroundColor: 'white',
   },
   filterItemActive: {
     borderWidth: 1,
     width: 100,
     padding: 5,
     borderColor: accentColor,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     margin: 3,
     marginTop: 10,
     borderRadius: 100,
     backgroundColor: primaryColor,
   },
-  filterItemTitle: { fontFamily: mainFont, color: textColor },
-  list: { width: "100%" },
+  filterItemTitle: {fontFamily: mainFont, color: textColor},
+  list: {width: '100%'},
 });
 
 export default Play;

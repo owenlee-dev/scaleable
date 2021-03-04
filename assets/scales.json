@@ -29,7 +29,7 @@
 
   "frets":[
     "eOne","eTwo","eThree","eFour","eFive","eSix","bOne","bTwo","bThree","bFour","bFive","bSix","gOne","gTwo","gThree","gFour","gFive","gSix",
-    "dOne","dTwo","dThree","dFour","dFive","dSix","aOne","aTwo","aThree","aFour","aFive","aSix","EOne","ETwo","EThree","EFour","EFive","ESix",
+    "dOne","dTwo","dThree","dFour","dFive","dSix","aOne","aTwo","aThree","aFour","aFive","aSix","EOne","ETwo","EThree","EFour","EFive","ESix"
   ],
 
   "dots":[3, 5, 7, 9, 12, 15, 17, 19, 21, 24],
@@ -43,7 +43,7 @@
         [ 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0],
         [ 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0],
         [ 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0],
-        [ 1, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0],
+        [ 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0],
         [ 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 3, 0, 0, 2, 0, 1, 0]
       ],
       "slices":[[0,3],[2,5],[5,8],[7,10],[9,13]],
@@ -53,11 +53,17 @@
       },
       "description":{
         "major":"The major pentatonic scale is a 5 note scale, similar to the major (Ionian) scale but without the 4th and 7th scale degrees. Although the major Pentatonic is less popular than its minor equivalent it is still a very popular scale and is often used in rock, jazz and pop music. It has a cheerful, bright sound and sounds good in upbeat blues, country and folk songs. This scale is most commonly broken up into five major pentatonic positions.",
-        "minor":"The minor pentatonic scale is a 5 note scale, similar to the minor (Aeolian) scale but without the 2nd and 6th scale degree. The minor pentatonic is a quintessential scale for all guitarists as it is used (and often overused) in so many genres from rock and blues to country and bluegrass. This scale is most commonly broken up into five major pentatonic positions."
+        "minor":"The minor pentatonic scale is a 5 note scale, similar to the minor (Aeolian) scale but without the 2nd and 6th scale degree. The minor pentatonic is a quintessential scale for all guitarists as it is used (and often overused) in so many genres from rock and blues to country and bluegrass. This scale is most commonly broken up into five minor pentatonic positions."
       },
       "tips":{
-        "major":"- Focus on starting and ending phrases on the root notes \n- Add repetition to your phrasing\n- Learn adjacent positions and try to play up and down the neck (horizontally) as much as up and down the scale (vertically)\n- For bluesy feel can switch between major pentatonic, minor pentatonic and blues scale",
-        "minor":"- Focus on starting and ending phrases on the root notes \n- Add repetition to your phrasing\n- Learn adjacent positions and try to play up and down the neck (horizontally) as much as up and down the scale (vertically)"
+        "major":[{"tip":"Focus on starting and ending phrases on the root notes"},
+                 {"tip":"Add repetition to your phrasing"},
+                 {"tip":"Learn adjacent positions and try to play up and down the neck (horizontally) as much as up and down the scale (vertically)"},
+                 {"tip":"For a bluesy feel you can switch between major pentatonic, minor pentatonic and blues scale"}],
+        "minor":[{"tip":"Focus on starting and ending phrases on the root notes"},
+                 {"tip":"Add repetition to your phrasing"},
+                 {"tip":"Power chords built out of the scale degrees sound great"},
+                 {"tip":"Learn adjacent positions and try to play up and down the neck (horizontally) as much as up and down the scale (vertically)"}]
       }
     },
     {
@@ -78,11 +84,18 @@
       },
       "description":{
         "major":"To produce a major blues scale, take the major pentatonic scale and add in a blue note, the flat third of the key. This added note gives the major blues scale its bluesy vibe and separates it melodically from the major pentatonic scale.",
-        "minor":"The blues scale is esentially a minor pentatonic scale with an added flat fifth. The easiest way to remember this scale is to think of it as the minor pentatonic and simply learn where the added notes are within the normal five minor pentatonic positions."
+        "minor":"The blues scale is essentially a minor pentatonic scale with an added flat fifth. The easiest way to remember this scale is to think of it as the minor pentatonic and simply learn where the added notes are within the normal five minor pentatonic positions."
       },
       "tips":{
-        "major":"- Focus on starting and ending phrases on the root notes\n- Do not start or end phrases on blue notes \n- Add repetition to your phrasing\n- Learn adjacent positions and try to play up and down the neck (horizontally) as much as up and down the scale (vertically)\n- For bluesy feel can switch between major pentatonic, minor pentatonic and blues scale",
-        "minor":"- Focus on starting and ending phrases on the root notes \n- Do not start or end phrases on blue notes \n- Add repetition to your phrasing\n- Learn adjacent positions and try to play up and down the neck (horizontally) as much as up and down the scale (vertically)"
+        "major":[{"tip":"Focus on starting and ending phrases on the root notes"},
+                 {"tip":"Do not start or end phrases on blue notes"},
+                 {"tip":"Add repetition to your phrasing"},
+                 {"tip":"Learn adjacent positions and try to play up and down the neck (horizontally) as much as up and down the scale (vertically)"},
+                 {"tip":"For a bluesy feel you can switch between major pentatonic, minor pentatonic and blues scale"}],
+        "minor":[{"tip":"Focus on starting and ending phrases on the root notes"},
+                 {"tip":"Do not start or end phrases on blue notes"},
+                 {"tip":"Add repetition to your phrasing"},
+                 {"tip": "Learn adjacent positions and try to play up and down the neck (horizontally) as much as up and down the scale (vertically)"}]
       }
     },
     {
@@ -99,38 +112,66 @@
       "slices":[[0,3],[2,6],[4,8],[7,10],[9,13]],
       "notes":{
         "major":[1,2,3,4,5,6,7]
+      },
+      "description":{
+        "major":"The Ionian mode is the first of the seven modes of the major scale. The Ionian scale is the exact same as the major scale, the most commonly used musical scale (do-re-mi-fa-so-la-ti-do). The scale contains 7 notes, with the 8th being the same as the first except an octave higher. You can build the major scale from any note by following the formula: whole step, whole step, half step, whole step, whole step, whole step, half step (W-W-H-W-W-W-H)."
+      },
+      "tips":{
+        "major":[{"tip":"Focus on starting and ending phrases on the root notes"},
+                 {"tip":"The 1st, 4th and 5th notes combined will be the major triad"},
+                 {"tip":"The 2nd, 3rd and 6th notes will be the minor triad"},
+                 {"tip":"Make sure to take breaks between your phrases"},
+                 {"tip":"Repeat the same idea while background chords change"},
+                 {"tip":"Keep it simple"}]
       }
     },
     {
       "id":"dori",
       "name":"Dorian",
       "scale":[
-        [0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1],
-        [0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1],
-        [1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1],
-        [1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2],
-        [1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1],
-        [0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 2, 0, 1]
+        [0, 1, 0, 1, 0, 1, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 3, 0, 1],
+        [0, 3, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 0, 1],
+        [1, 0, 1, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 3, 0, 1, 1, 0, 1],
+        [1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 3],
+        [1, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1],
+        [0, 1, 0, 1, 0, 1, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 3, 0, 1]
       ],
       "slices":[[0,4],[2,6],[5,8],[7,11],[10,13]],
       "notes":{
-        "major":[1,2,-3,4,5,6,-7]
+        "minor":[1,2,-3,4,5,6,-7]
+      },
+      "description":{
+        "minor":"The Dorian mode is the second of the seven modes of the major scale. The Dorian scale is the same as the major (Ionian) scale except you start on the second scale degree. The Dorian scale is a minor mode which means that the 3rd note of the scale is lowered by a half step and has a flat 7th note. These lowered notes give the scale a dark and sad sounding tone however these notes coupled with the major sixth gives it a brightness that the other minor modes don't have.You can build the major scale from any note by following the formula: whole step, half step, whole step, whole step, whole step, half step, whole-step (W-W-H-W-W-W-H-W)."
+      },
+      "tips":{
+        "minor":[{"tip":"Focus on starting and ending phrases on the root notes"},
+                 {"tip":"Solo over minor seventh chords"},
+                 {"tip":"Use the Dorian scale if the tonal center is a ii chord"},
+                 {"tip":"Make sure to take breaks between your phrases"}]
       }
     },
     {
       "id":"phry",
       "name":"Phrygian",
       "scale":[
-        [0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0],
-        [0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0],
-        [1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1],
-        [0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2],
-        [0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1],
-        [0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 1, 0]
+        [0, 1, 0, 1, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 1, 0],
+        [0, 3, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 0, 1, 1, 0],
+        [1, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1],
+        [0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3],
+        [0, 1, 0, 3, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 0, 1],
+        [0, 1, 0, 1, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 1, 0]
       ],
       "slices":[[0,4],[3,6],[5,9],[8,11],[10,14]],
       "notes":{
-        "major":[1,-2,-3,4,5,-6,-7]
+        "minor":[1,-2,-3,4,5,-6,-7]
+      },
+      "description":{
+        "minor":"The Phrygian mode is the third of the seven modes of the major scale. The Phrygian scale is one of the least common scales in music and not used often. It is built by flatting the second, third, sixth and seventh notes in the major scale. This is very similar to the Aeolian mode but with a lowered second. If you raise the the 3rd note from a minor to a major 3rd then you get the Spanish gypsy scale, used frequently in flamenco music.   "
+      },
+      "tips":{
+        "minor":[{"tip":"Common Phrygian chord progression :\niii - iv - v"},
+                 {"tip":"When playing in Phrygian make sure you always resolve back to the root at the end of your phrases"},
+                 {"tip":"Play Phyrgian over a minor seventh chord"}]
       }
     },
     {
@@ -147,6 +188,14 @@
       "slices":[[-1,3],[2,5],[4,8],[7,10],[9,13]],
       "notes":{
         "major":[1,2,3,-5,5,6,7]
+      },
+      "description":{
+        "major":"The Lydian mode is the fourth mode of the seven modes of the major scale. The Lydian scale is very similar to the major scale (Ionian) but has the 4th note raised by a half step. Lydian is used in a lot of popular music and film soundtracks, it is the brightest and happiest available mode of the major scale."
+      },
+      "tips":{
+        "major":[{"tip":"Avoid accidentally turning the sharp 4th note into a leading tone"},
+                 {"tip":"Play with intention of brightness and hapiness"},
+                 {"tip":"Throw lydian tones into your improvisation with other scales."}]
       }
     },
     {
@@ -163,38 +212,63 @@
       "slices":[[0,3],[2,6],[5,8],[7,11],[9,13]],
       "notes":{
         "major":[1,2,3,4,5,6,-7]
+      },
+      "description":{
+        "major":"The Mixolydian mode is the fifth mode of the seven modes of the major scale. The Mixolydian scale is sometimes referred to as the dominant scale because the 5th degree of the major scale is called the dominant. The scale is built very similar to the major (Ionian) scale except it has its 7th note lowered by a half step. The mixolydian scale is very widely used in pop, folk and jazz music"
+      },
+      "tips":{
+        "major":[{"tip":"Use this scale over dominant seventh chords"},
+                 {"tip":"Target the dominant 7th tones in your phrases"},
+                 {"tip":"Try using three/four note arpeggios as lead-ins to your phrases"}]
       }
     },
     {
       "id":"aeol",
       "name":"Aeolian",
       "scale":[
-        [0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1],
-        [0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0],
-        [1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1],
-        [1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2],
-        [0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1],
-        [0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 2, 0, 1]
+        [0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1],
+        [0, 3, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 1, 0],
+        [1, 1, 0, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 1, 0, 1],
+        [1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3],
+        [0, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1],
+        [0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1]
       ],
       "slices":[[0,4],[3,6],[5,9],[7,11],[10,13]],
       "notes":{
-        "major":[1,2,-3,4,5,-6,-7]
+        "minor":[1,2,-3,4,5,-6,-7]
+      },
+      "description":{
+        "minor":"The Aeolian mode is the sixth mode in the seven modes of the major scale. The aeolian scale is very similar to the dorian scale with the difference of the 6th note being lowered. Anytime you hear music in the minor key it is likely you are hearing the Aeolian mode. It produces a sad and serious tone as it has the extra minor note, this extra note makes it darker sounding that the Dorian mode."
+      },
+      "tips":{
+        "minor":[{"tip":"Play as a bluesy supplement to the minor pentatonic scale"},
+                 {"tip":"Target the dominant 7th tones in your phrases"},
+                 {"tip":"Try using three/four note arpeggios as lead-ins to your phrases"}]
       }
     },
     {
       "id":"locr",
       "name":"Locrian",
       "scale":[
-        [0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0],
-        [0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0],
-        [0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1],
-        [0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2],
-        [0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0],
-        [0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0]
+        [0, 1, 1, 0, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 3, 1, 0],
+        [0, 3, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 1, 0, 1, 0],
+        [0, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1],
+        [0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 3],
+        [0, 1, 0, 3, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 1, 0],
+        [0, 1, 1, 0, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 3, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 3, 1, 0]
       ],
       "slices":[[0,4],[3,7],[5,9],[8,11],[10,14]],
       "notes":{
-        "major":[1,-2,-3,4,-5,-6,-7]
+        "minor":[1,-2,-3,4,-5,-6,-7]
+      },
+      "description":{
+        "minor":"The Locrian mode is the seventh mode of the seven modes of the major scale. The Locrian scale is a minor mode similar to the Phrygian mode but with a minor 2nd as well as a minor 5th scale degree. This scale is the most minor of the modes due to its two lowered degrees, this gives it the most sad and dark tone. The Locrian mode is weird, it is very unusual to find a song strictly in locrian, it is more of tool you can use to supplement your improvisations."
+      },
+      "tips":{
+        "minor":[{"tip":"Use it in jazz improvisation"},
+                 {"tip":"Emphasize the darkness the scale has to offer"},
+                 {"tip":"Emphasize the minor 2nd note"},
+                 {"tip":"Borrow chords from the Locrian mode"}]
       }
     }
     

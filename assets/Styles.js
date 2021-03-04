@@ -1,38 +1,38 @@
-import { StyleSheet } from "react-native";
-export const mainFont = "JosefinSans-Regular";
-export const headerFont = "JosefinSans-Bold";
+import {StyleSheet} from 'react-native';
+export const mainFont = 'JosefinSans-Regular';
+export const headerFont = 'JosefinSans-Bold';
 //purple
-// export const primaryColor = "#D6CFF7";
-// export const secondaryColor = "#C4B9F2";
-// export const accentColor = "#8B76E8";
-// export const textColor = "#4524D6";
-// export const backgroundColor = "#FFFFFF";
-// export const playBackgroundColor = "lightgray";
+// export const primaryColor = '#D6CFF7';
+// export const secondaryColor = '#C4B9F2';
+// export const accentColor = '#8B76E8';
+// export const textColor = '#4524D6';
+// export const backgroundColor = '#FFFFFF';
+// export const playBackgroundColor = 'lightgray';
 
 // brown;
-export const primaryColor = "#E3D0A0";
-export const secondaryColor = "#CCA950";
-export const accentColor = "#8E7229";
-export const textColor = "#2D2614";
-export const backgroundColor = "#FFFCF5";
-export const playBackgroundColor = "#EBDFD5";
+export const primaryColor = '#E3D0A0';
+export const secondaryColor = '#CCA950';
+export const accentColor = '#8E7229';
+export const textColor = '#2D2614';
+export const backgroundColor = '#FFFCF5';
+export const playBackgroundColor = '#EBDFD5';
 export const mainBorderRadius = 4;
 
 //blue
-// export const primaryColor = "#80A1E0";
-// export const secondaryColor = "#3166C8";
-// export const accentColor = "#133F90";
-// export const textColor = "#101B30";
-// export const backgroundColor = "#F2F5FC";
-// export const playBackgroundColor = "lightgray";
+// export const primaryColor = '#80A1E0';
+// export const secondaryColor = '#3166C8';
+// export const accentColor = '#133F90';
+// export const textColor = '#101B30';
+// export const backgroundColor = '#F2F5FC';
+// export const playBackgroundColor = 'lightgray';
 
 // //orange
-// export const primaryColor = "#E3B682";
-// export const secondaryColor = "#D1852E";
-// export const accentColor = "#7D501C";
-// export const textColor = "#2D2010";
-// export const backgroundColor = "#F9EEE2";
-// export const playBackgroundColor = "lightgray";
+// export const primaryColor = '#E3B682';
+// export const secondaryColor = '#D1852E';
+// export const accentColor = '#7D501C';
+// export const textColor = '#2D2010';
+// export const backgroundColor = '#F9EEE2';
+// export const playBackgroundColor = 'lightgray';
 
 //red
 // export const primaryColor = "#D3A297";
@@ -67,12 +67,12 @@ export const mainBorderRadius = 4;
 // export const playBackgroundColor = "lightgray";
 
 // //dark
-// export const primaryColor = "#988686";
-// export const secondaryColor = "#5c4e4e";
-// export const accentColor = "#382727";
-// export const textColor = "#0d0000";
-// export const backgroundColor = "#F6EDE8";
-// export const playBackgroundColor = "#d1d0d0";
+// export const primaryColor = '#988686';
+// export const secondaryColor = '#5c4e4e';
+// export const accentColor = '#382727';
+// export const textColor = '#0d0000';
+// export const backgroundColor = '#F6EDE8';
+// export const playBackgroundColor = '#d1d0d0';
 
 //darker
 // export const primaryColor = "#222222";

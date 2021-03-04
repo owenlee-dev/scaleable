@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, {useContext, useEffect} from 'react';
 import {
   Text,
   View,
@@ -7,9 +7,9 @@ import {
   Image,
   Animated,
   Easing,
-} from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
-import { AppContext } from "../AppContext";
+} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import {AppContext} from '../AppContext';
 import {
   accentColor,
   backgroundColor,
@@ -17,23 +17,22 @@ import {
   secondaryColor,
   textColor,
   mainBorderRadius,
-} from "../assets/Styles";
+} from '../assets/Styles';
 
-function BottomTabNavigation({ history }) {
+function BottomTabNavigation({history}) {
   const guitarPick = {
-    uri:
-      "https://vectr.com/owenlee-dev/a1fWIvDxka.png?width=30&height=30&select=a1fWIvDxkapage0",
+    uri: './assets/images/guitar-pick',
   };
-  const { tab, setTab } = useContext(AppContext);
+  const {tab, setTab} = useContext(AppContext);
 
-  let learnButton = "tabButton";
-  let playButton = "pressedTabButton";
-  if (tab === "learn") {
-    learnButton = "tabButtonPressed";
-    playButton = "tabButton";
+  let learnButton = 'tabButton';
+  let playButton = 'pressedTabButton';
+  if (tab === 'learn') {
+    learnButton = 'tabButtonPressed';
+    playButton = 'tabButton';
   } else {
-    learnButton = "tabButton";
-    playButton = "tabButtonPressed";
+    learnButton = 'tabButton';
+    playButton = 'tabButtonPressed';
   }
 
   const spinValue = new Animated.Value(0);
@@ -50,34 +49,31 @@ function BottomTabNavigation({ history }) {
   // Next, interpolate beginning and end values (in this case 0 and 1)
   const spinToLearn = spinValue.interpolate({
     inputRange: [0, 1],
-    outputRange: ["0deg", "180deg"],
+    outputRange: ['0deg', '180deg'],
   });
   const spinToPlay = spinValue.interpolate({
     inputRange: [0, 1],
-    outputRange: ["180deg", "0deg"],
+    outputRange: ['180deg', '0deg'],
   });
 
   return (
     <View style={styles.container}>
       <Pressable
         style={styles[playButton]}
-        disabled={tab === "play"}
+        disabled={tab === 'play'}
         onPress={() => {
-          setTab("play");
-        }}
-      >
+          setTab('play');
+        }}>
         <Text style={styles.tabTitle}>Play</Text>
       </Pressable>
       <View style={styles.centerContainer}>
         <Animated.Image
-          source={guitarPick}
+          source={require('../assets/images/guitar-pick.png')}
           style={[
             styles.pick,
             {
               transform: [
-                tab === "learn"
-                  ? { rotate: spinToLearn }
-                  : { rotate: spinToPlay },
+                tab === 'learn' ? {rotate: spinToLearn} : {rotate: spinToPlay},
               ],
             },
           ]}
@@ -85,11 +81,10 @@ function BottomTabNavigation({ history }) {
       </View>
       <Pressable
         style={styles[learnButton]}
-        disabled={tab === "learn"}
+        disabled={tab === 'learn'}
         onPress={() => {
-          setTab("learn");
-        }}
-      >
+          setTab('learn');
+        }}>
         <Text style={styles.tabTitle}>Learn</Text>
       </Pressable>
     </View>
@@ -98,37 +93,37 @@ function BottomTabNavigation({ history }) {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
+    flexDirection: 'row',
     backgroundColor: backgroundColor,
-    justifyContent: "space-evenly",
-    width: "100%",
+    justifyContent: 'space-evenly',
+    width: '100%',
     padding: 5,
-    height: "10%",
-    alignItems: "center",
+    height: '10%',
+    alignItems: 'center',
   },
   tabButton: {
     borderRadius: mainBorderRadius,
     borderWidth: 2,
     borderColor: accentColor,
     backgroundColor: backgroundColor,
-    width: "45%",
-    height: "100%",
-    alignItems: "center",
-    justifyContent: "center",
+    width: '45%',
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   tabButtonPressed: {
     borderWidth: 2,
     borderColor: accentColor,
     borderRadius: mainBorderRadius,
     backgroundColor: primaryColor,
-    width: "45%",
-    height: "100%",
-    alignItems: "center",
-    justifyContent: "center",
+    width: '45%',
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   tabTitle: {
     fontSize: 20,
-    fontFamily: "JosefinSans-Bold",
+    fontFamily: 'JosefinSans-Bold',
     letterSpacing: 2,
     color: textColor,
   },

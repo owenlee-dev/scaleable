@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, {useState, useContext, useEffect} from 'react';
 import {
   StyleSheet,
   Text,
@@ -8,14 +8,16 @@ import {
   TextInput,
   Pressable,
   Keyboard,
+  ActivityIndicator,
   Animated,
   TouchableOpacity,
-} from "react-native";
-import api from "../tools/api";
-import { AppContext } from "../AppContext";
-import Icon from "react-native-vector-icons/FontAwesome";
-import CircularPicker from "../components/CircularPicker";
-import LinearGradient from "react-native-linear-gradient";
+} from 'react-native';
+import api from '../tools/api';
+import {AppContext} from '../AppContext';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import CircularPicker from '../components/CircularPicker';
+import LinearGradient from 'react-native-linear-gradient';
+import {Overlay} from 'react-native-elements';
 import {
   globalStyles,
   primaryColor,
@@ -25,9 +27,10 @@ import {
   accentColor,
   textColor,
   backgroundColor,
-} from "../assets/Styles";
-
-const Search = ({ history }) => {
+  headerFont,
+} from '../assets/Styles';
+import {Images} from '../assets/images/Images';
+const Search = ({history}) => {
   const {
     chosen,
     setChosen,
@@ -37,11 +40,12 @@ const Search = ({ history }) => {
     setCurrentKey,
     setTab,
   } = useContext(AppContext);
-  const [searchBy, setSearchBy] = useState("song");
-  const [userInput, setUserInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [searchBy, setSearchBy] = useState('song');
+  const [userInput, setUserInput] = useState('');
   const [pickerValue, setPickerValue] = useState(0);
   const [isMinor, setIsMinor] = useState(false);
-  const [pickerColor, setPickerColor] = useState("white");
+  const [pickerColor, setPickerColor] = useState('white');
   //prettier-ignore
   const majorKeys=['A','A#','B','C','C#',"D","D#","E","F","F#","G",'G#'];
   //prettier-ignore
@@ -54,32 +58,35 @@ const Search = ({ history }) => {
 
   //function to call api and store search results in data
   const submitSearchHandler = async () => {
+    setLoading(true);
     const response = await api.getSearchResults(userInput);
+    setLoading(false);
     setData(response);
   };
 
   const handleKeyPress = () => {
     setChosen(currentKey);
-    setTab("play");
-    history.push("/");
+    setTab('play');
+    history.push('/');
   };
 
   //function to set state to chosen song
   const selectSongHandler = async (item) => {
+    setLoading(true);
     const song = await api.getSongDetails(item.id);
-    setChosen(song.data.song);
-    setCurrentKey(song.data.song.key_of);
-    setTab("play");
-    history.push("/");
+    setChosen(song);
+    setCurrentKey(song.key_of);
+    setTab('play');
+    history.push('/');
   };
 
   //function to shorten title name in flatlist
   const filterTitle = (title, artist) => {
     //TODO should make all titles scrolling after a certain period of time
     if (title.length > 24) {
-      title = title.slice(0, 24) + "...";
+      title = title.slice(0, 24) + '...';
     }
-    return title + " - " + artist;
+    return title + ' - ' + artist;
   };
 
   //when key button is clicked
@@ -92,7 +99,7 @@ const Search = ({ history }) => {
   useEffect(() => {
     if (chosen && chosen.id) {
       setCurrentKey(chosen.key_of);
-      let isMinor = chosen.key_of.includes("m");
+      let isMinor = chosen.key_of.includes('m');
       let keys = majorKeys;
       if (isMinor) {
         setIsMinor(true);
@@ -130,87 +137,70 @@ const Search = ({ history }) => {
     outputRange: [-500, 0],
   });
 
-  // useEffect(() => {
-  //   Animated.timing(slideValue, {
-  //     toValue: 1,
-  //     duration: 500,
-  //     useNativeDriver: true, // To make use of native driver for performance
-  //   }).start();
-  // }, []);
-
   return (
     <LinearGradient
       colors={[backgroundColor, backgroundColor]}
-      style={styles.container}
-    >
-      <Animated.View
-        style={[
-          styles.searchBarContainer,
-          // {
-          //   transform: [{ translateY: slideDown }],
-          // },
-        ]}
-      >
+      style={styles.container}>
+      <Overlay isVisible={loading} overlayStyle={styles.overlayStyle}>
+        <>
+          <Image
+            style={{width: 100, height: 100, alignSelf: 'center'}}
+            source={Images.guitarCartoon}></Image>
+          <Text style={styles.loadingText}>Loading...</Text>
+        </>
+      </Overlay>
+      <Animated.View style={[styles.searchBarContainer]}>
         <Pressable
           style={[styles.button, styles.backButton]}
-          onPress={() => history.push("/")}
-        >
-          <Icon style={{ color: textColor }} name="arrow-left" />
+          onPress={() => history.push('/')}>
+          <Icon style={{color: textColor}} name="arrow-left" />
         </Pressable>
         <TextInput
           style={styles.searchBar}
           placeholder="Search..."
+          selectionColor={primaryColor}
           onChangeText={(text) => {
             setUserInput(text);
           }}
-          onFocus={() => setSearchBy("song")}
+          onFocus={() => setSearchBy('song')}
           autoFocus={true}
           onSubmitEditing={submitSearchHandler}
           value={userInput}
         />
       </Animated.View>
-
-      {searchBy === "song" && (
+      {searchBy === 'song' && (
         //search by song
         <>
           <View style={styles.searchByContainer}>
             <Pressable
               style={[styles.buttonPressed, styles.searchButton]}
-              onPress={() => setSearchBy("song")}
-            >
+              onPress={() => setSearchBy('song')}>
               <Text style={styles.searchByText}>Song</Text>
             </Pressable>
             <Pressable
               style={[styles.button, styles.searchButton]}
               onPress={() => {
-                setSearchBy("key");
+                setSearchBy('key');
                 Keyboard.dismiss();
-              }}
-            >
+              }}>
               <Text style={styles.searchByText}>Key</Text>
             </Pressable>
           </View>
           <View style={styles.bottomTextContainer}>
-            {/* {!chosen && (
-              <Image
-                style={{ width: 250, height: 250, marginTop: "80%" }}
-                source={require("../assets/guitar-cartoon.png")}
-              ></Image>
-            )} */}
-
+            {!data && <Text style={styles.noSong}>No Song Selected</Text>}
+            {data.error && <Text style={styles.noSong}>No Songs Found...</Text>}
             <FlatList
               data={data}
               showsVerticalScrollIndicator={false}
               keyExtractor={(item) => item.id}
-              renderItem={({ item }) => (
+              renderItem={({item}) => (
                 <TouchableOpacity
                   style={styles.listItem}
                   onPress={(e) => {
                     selectSongHandler(item);
-                  }}
-                >
+                  }}>
                   <Image
-                    source={{ uri: item.artist.img }}
+                    source={{uri: item.artist.img}}
                     style={styles.coverImage}
                   />
                   <Text style={styles.title}>
@@ -222,20 +212,18 @@ const Search = ({ history }) => {
           </View>
         </>
       )}
-      {searchBy === "key" && (
+      {searchBy === 'key' && (
         //search by key
         <>
           <View style={styles.searchByContainer}>
             <Pressable
               style={[styles.button, styles.searchButton]}
-              onPress={() => setSearchBy("song")}
-            >
+              onPress={() => setSearchBy('song')}>
               <Text style={styles.searchByText}>Song</Text>
             </Pressable>
             <Pressable
               style={[styles.buttonPressed, styles.searchButton]}
-              onPress={() => setSearchBy("key")}
-            >
+              onPress={() => setSearchBy('key')}>
               <Text style={styles.searchByText}>Key</Text>
             </Pressable>
           </View>
@@ -245,16 +233,14 @@ const Search = ({ history }) => {
               {isMinor && (
                 <Pressable
                   style={[styles.button, styles.minorButton]}
-                  onPress={() => setIsMinor(false)}
-                >
+                  onPress={() => setIsMinor(false)}>
                   <Text style={styles.switchText}>Minor Key</Text>
                 </Pressable>
               )}
               {!isMinor && (
                 <Pressable
                   style={[styles.buttonPressed, styles.majorButton]}
-                  onPress={() => setIsMinor(true)}
-                >
+                  onPress={() => setIsMinor(true)}>
                   <Text style={styles.switchText}>Major Key</Text>
                 </Pressable>
               )}
@@ -275,32 +261,29 @@ const Search = ({ history }) => {
                 defaultPos={pickerValue}
                 onChange={changeKey}
               />
+              <TouchableOpacity
+                style={[styles.button, styles.circleButton]}
+                onPress={handleKeyPress}>
+                <Text
+                  style={{
+                    textAlign: 'center',
+                    fontSize: 22,
+                    color: accentColor,
+                    fontFamily: mainFont,
+                  }}>
+                  Play in
+                </Text>
+                <Text
+                  style={{
+                    textAlign: 'center',
+                    color: textColor,
+                    fontSize: 30,
+                    fontFamily: mainFont,
+                  }}>
+                  {currentKey}
+                </Text>
+              </TouchableOpacity>
             </View>
-            <TouchableOpacity
-              style={[styles.button, styles.circleButton]}
-              onPress={handleKeyPress}
-            >
-              <Text
-                style={{
-                  textAlign: "center",
-                  fontSize: 22,
-                  color: accentColor,
-                  fontFamily: mainFont,
-                }}
-              >
-                Play in
-              </Text>
-              <Text
-                style={{
-                  textAlign: "center",
-                  color: textColor,
-                  fontSize: 30,
-                  fontFamily: mainFont,
-                }}
-              >
-                {currentKey}
-              </Text>
-            </TouchableOpacity>
           </View>
         </>
       )}
@@ -315,61 +298,74 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: mainBorderRadius,
     borderColor: primaryColor,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "white",
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white',
+  },
+  loadingText: {
+    fontFamily: headerFont,
+    color: textColor,
+    fontSize: 30,
+    backgroundColor: 'transparent',
+  },
+  overlayStyle: {
+    backgroundColor: 'transparent',
+    elevation: 0,
   },
   buttonPressed: {
     borderWidth: 2,
     borderRadius: mainBorderRadius,
     borderColor: secondaryColor,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: primaryColor,
   },
+  noSong: {
+    fontFamily: mainFont,
+  },
   searchBarContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "transparent",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
     padding: 5,
-    width: "100%",
-    height: "10%",
+    width: '100%',
+    height: '10%',
   },
   backButton: {
-    width: "10%",
-    height: "90%",
-    shadowColor: "black",
+    width: '10%',
+    height: '90%',
+    shadowColor: 'black',
     shadowOpacity: 0.15,
     shadowRadius: 4,
-    shadowOffset: { width: 4, height: 4 },
+    shadowOffset: {width: 4, height: 4},
     elevation: 4,
   },
   searchBar: {
-    width: "90%",
+    width: '90%',
     borderRadius: mainBorderRadius,
     padding: 10,
     margin: 3,
-    height: "90%",
+    height: '90%',
     fontSize: 24,
     fontFamily: mainFont,
     borderWidth: 2,
     color: textColor,
     borderColor: primaryColor,
-    backgroundColor: "white",
-    shadowColor: "black",
+    backgroundColor: 'white',
+    shadowColor: 'black',
     shadowOpacity: 0.15,
     shadowRadius: 4,
-    shadowOffset: { width: 4, height: 4 },
+    shadowOffset: {width: 4, height: 4},
     elevation: 4,
   },
   searchByContainer: {
-    backgroundColor: "transparent",
+    backgroundColor: 'transparent',
     padding: 10,
-    height: "10%",
-    alignItems: "center",
-    flexDirection: "row",
-    justifyContent: "space-around",
+    height: '10%',
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
   },
   searchByText: {
     fontFamily: mainFont,
@@ -377,26 +373,26 @@ const styles = StyleSheet.create({
     color: textColor,
   },
   searchButton: {
-    width: "40%",
-    height: "80%",
+    width: '40%',
+    height: '80%',
   },
   searchButtonPressed: {
-    width: "40%",
-    height: "80%",
+    width: '40%',
+    height: '80%',
   },
 
   //search result container
   bottomTextContainer: {
     flex: 1,
     padding: 10,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   selectKeyContainer: {
     flex: 0.3,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   selectText: {
     fontSize: 20,
@@ -406,14 +402,14 @@ const styles = StyleSheet.create({
   minorButton: {
     flex: 0.6,
     padding: 5,
-    height: "30%",
+    height: '30%',
     backgroundColor: secondaryColor,
     borderColor: primaryColor,
   },
   majorButton: {
     flex: 0.6,
     padding: 5,
-    height: "30%",
+    height: '30%',
     borderColor: primaryColor,
   },
   switchText: {
@@ -421,44 +417,48 @@ const styles = StyleSheet.create({
     color: textColor,
     fontFamily: mainFont,
   },
-  circlePicker: { flex: 0.8 },
+  circlePicker: {
+    flex: 0.8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 
   circleButton: {
-    position: "absolute",
-    bottom: "31%",
+    position: 'absolute',
+
     height: 150,
     width: 150,
     borderRadius: 300,
-    shadowColor: "black",
+    shadowColor: 'black',
     shadowOpacity: 0.15,
     shadowRadius: 4,
-    shadowOffset: { width: 4, height: 4 },
+    shadowOffset: {width: 4, height: 4},
     elevation: 8,
   },
 
   listItem: {
     marginBottom: 10,
     height: 70,
-    alignItems: "center",
-    width: "100%",
-    flexDirection: "row",
+    alignItems: 'center',
+    width: '100%',
+    flexDirection: 'row',
     borderRadius: mainBorderRadius,
     padding: 5,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderColor: secondaryColor,
     borderWidth: 2,
     shadowOpacity: 0.05,
     shadowRadius: 4,
-    shadowOffset: { width: 1, height: 1 },
+    shadowOffset: {width: 1, height: 1},
     elevation: 2,
   },
   coverImage: {
-    width: "15%",
-    height: "90%",
+    width: '15%',
+    height: '90%',
     borderRadius: mainBorderRadius,
   },
   title: {
-    width: "85%",
+    width: '85%',
     color: textColor,
     paddingLeft: 10,
     fontFamily: mainFont,

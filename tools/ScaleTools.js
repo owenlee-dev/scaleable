@@ -1,4 +1,4 @@
-import scales from "../assets/scales.json";
+import scales from '../assets/scales.json';
 
 //helper function to parse the notes array
 const getTransValue = (key) => {
@@ -35,7 +35,7 @@ export const transposeSlices = (slices, newKey) => {
   const transVal = getTransValue(newKey);
   let newSlices = Array.from(
     Array(slices.length),
-    () => new Array(slices[0].length)
+    () => new Array(slices[0].length),
   );
 
   // transpose original slices from C major
@@ -111,17 +111,37 @@ export const splitScale = (scale, slices) => {
     }
     splitScales.push(res);
   }
-  const splitScaleObject = { startFrets, splitScales };
+  const splitScaleObject = {startFrets, splitScales};
   return splitScaleObject;
+};
+
+export const getRenderScale = (scale, isMinor) => {
+  let notes = JSON.parse(JSON.stringify(scales.frets));
+
+  // 2 = major root note || 3 = minor root note || 4 = bluenote
+  // building matrix of note styles for render
+  for (let i = 0; i < scale.length; i++) {
+    for (let j = 0; j < scale.length; j++) {
+      if (!isMinor && scale[i][j] === 2) {
+        notes[i * 6 + j] = notes[i * 6 + j].concat('-root');
+      } else if (isMinor && scale[i][j] === 3) {
+        notes[i * 6 + j] = notes[i * 6 + j].concat('-root');
+      }
+      if (!scale[i][j]) {
+        notes[i * 6 + j] = 'open';
+      }
+    }
+  }
+  return notes;
 };
 
 export const halfStep = (key) => {
   for (let i = 0; i < scales.notes.length; i++) {
     if (scales.notes[i].note === key) {
-      if (key === "G#") {
-        return "A";
-      } else if (key === "G#m") {
-        return "Am";
+      if (key === 'G#') {
+        return 'A';
+      } else if (key === 'G#m') {
+        return 'Am';
       }
       return scales.notes[i + 1].note;
     }
@@ -131,14 +151,14 @@ export const halfStep = (key) => {
 export const wholeStep = (key) => {
   for (let i = 0; i < scales.notes.length; i++) {
     if (scales.notes[i].note === key) {
-      if (key === "G") {
-        return "A";
-      } else if (key === "G#") {
-        return "A#";
-      } else if (key === "Gm") {
-        return "Am";
-      } else if (key === "G#m") {
-        return "A#m";
+      if (key === 'G') {
+        return 'A';
+      } else if (key === 'G#') {
+        return 'A#';
+      } else if (key === 'Gm') {
+        return 'Am';
+      } else if (key === 'G#m') {
+        return 'A#m';
       }
       return scales.notes[i + 2].note;
     }
@@ -149,16 +169,16 @@ const attatchFlat = (key) => {
   //case1 : is sharp - return the note without flats or sharps
   //case2 : is normal attatch flat
   //case3 : is minor attatch flat in middle
-  if (key.includes("#")) {
+  if (key.includes('#')) {
     if (key.length === 3) {
-      return key.charAt(0) + "m";
+      return key.charAt(0) + 'm';
     } else {
       return key.charAt(0);
     }
-  } else if (key.includes("m")) {
-    return key.charAt(0) + "bm";
+  } else if (key.includes('m')) {
+    return key.charAt(0) + 'bm';
   } else {
-    return key + "b";
+    return key + 'b';
   }
 };
 
@@ -168,7 +188,7 @@ export const getNotesInScale = (name, key, isMinor) => {
   }
   let notes = getScaleObject(name).notes;
 
-  if (key.includes("m")) {
+  if (key.includes('m')) {
     key = key.substring(0, key.length - 1);
   }
   isMinor ? (notes = notes.minor) : (notes = notes.major);

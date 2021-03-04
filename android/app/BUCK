@@ -35,12 +35,12 @@ android_library(
 
 android_build_config(
     name = "build_config",
-    package = "com.freshnative",
+    package = "com.scaleapp",
 )
 
 android_resource(
     name = "res",
-    package = "com.freshnative",
+    package = "com.scaleapp",
     res = "src/main/res",
 )
 
